@@ -5,7 +5,7 @@ conf=/etc/ibcontroller/conf.ini
 # Force those values
 export IB_ForceTwsApiPort=
 export IB_IbBindAddress=127.0.0.1
-export IB_IbDir=/var/run/ibcontroller/tws/conf
+export IB_IbDir=/etc/ibcontroller/
 
 # thanks to kafka-docker for this wonderful snippet
 for VAR in `env`; do
@@ -28,7 +28,9 @@ socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
     /var/run/xvfb/ \
     java \
     -cp \
-    /usr/share/java/ib-tws/jts.jar:/usr/share/java/ib-tws/total.jar:/usr/share/java/ibcontroller/ibcontroller.jar \
-    -Xmx512M \
+    /usr/share/java/ib-tws/*:/usr/share/java/ibcontroller/* \
+    -Dsun.java2d.noddraw=true \
+    -Dswing.boldMetal=false \
+    -Dsun.locale.formatasdefault=true -Xmx512M \
     ibcontroller.IBGatewayController \
     $conf
