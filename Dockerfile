@@ -4,7 +4,7 @@ RUN pacman -Syu --noconfirm \
     gsettings-desktop-schemas \
     gtk2 \
     imagemagick \
-    java-environment \
+    java-environment=8 \
     libxrender \
     libxtst \
     socat \

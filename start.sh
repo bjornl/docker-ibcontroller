@@ -5,7 +5,7 @@ conf=/etc/ibcontroller/conf.ini
 # Force those values
 export IB_ForceTwsApiPort=
 export IB_IbBindAddress=127.0.0.1
-export IB_IbDir=/etc/ibcontroller/
+export IB_IbDir=/var/run/ibcontroller/tws/conf
 
 # thanks to kafka-docker for this wonderful snippet
 for VAR in `env`; do
