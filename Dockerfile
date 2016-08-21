@@ -19,7 +19,6 @@ RUN aur-install.sh ib-controller --skipchecksums
 
 RUN mkdir /var/run/xvfb/
 RUN cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
-COPY jts.ini /etc/ibcontroller/jts.ini
 COPY start.sh /start.sh
 RUN chmod a+x /start.sh
 
