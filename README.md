@@ -17,3 +17,15 @@ services:
             - IB_IbLoginId=username
             - IB_IbPassword=password
 ```
+
+Build with
+
+```
+docker build -t {tag_name} .
+```
+
+Run with
+
+```
+docker run -d --env IB_IbLoginId={login_id} --env IB_IbPassword={password} --env IB_TradingMode=paper {tag_name};
+```
