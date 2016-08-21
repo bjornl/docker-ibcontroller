@@ -7,8 +7,6 @@ export IB_ForceTwsApiPort=4003
 export IB_IbBindAddress=127.0.0.1
 export IB_IbDir=/var/run/ibcontroller/tws/conf
 
-sleep 30;
-
 # thanks to kafka-docker for this wonderful snippet
 for VAR in `env`; do
     if [[ $VAR =~ ^IB_ ]]; then
@@ -24,8 +22,6 @@ done
 
 socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
 
-sleep 30;
-
 /usr/sbin/xvfb-run \
     --auto-servernum \
     -f \
@@ -37,4 +33,4 @@ sleep 30;
     -Dswing.boldMetal=false \
     -Dsun.locale.formatasdefault=true -Xmx512M \
     ibcontroller.IBGatewayController \
-    $conf;
+    $conf paper;
