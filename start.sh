@@ -3,7 +3,7 @@
 conf=/etc/ibcontroller/conf.ini
 
 # Force those values
-export IB_ForceTwsApiPort=
+export IB_ForceTwsApiPort=4001
 export IB_IbBindAddress=127.0.0.1
 export IB_IbDir=/var/run/ibcontroller/tws/conf
 
