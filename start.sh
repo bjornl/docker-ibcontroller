@@ -3,7 +3,7 @@
 conf=/etc/ibcontroller/conf.ini
 
 # Force those values
-export IB_ForceTwsApiPort=4003
+export IB_ForceTwsApiPort=4001
 export IB_IbBindAddress=127.0.0.1
 export IB_IbDir=/var/run/ibcontroller/tws/conf
 
@@ -33,4 +33,4 @@ socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
     -Dswing.boldMetal=false \
     -Dsun.locale.formatasdefault=true -Xmx512M \
     ibcontroller.IBGatewayController \
-    $conf paper;
+    $conf;
