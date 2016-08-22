@@ -20,6 +20,6 @@ RUN aur-install.sh ib-controller --skipchecksums
 COPY start.sh /start.sh
 RUN chmod a+x /start.sh
 
-EXPOSE 4001
+EXPOSE 4003
 
 CMD ["/start.sh"]
