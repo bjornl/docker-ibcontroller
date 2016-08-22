@@ -2,6 +2,9 @@
 
 conf=/etc/ibcontroller/conf.ini
 
+mkdir -p /var/run/xvfb/
+cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
+
 # Force those values
 export IB_ForceTwsApiPort=4001
 export IB_IbBindAddress=127.0.0.1
@@ -21,9 +24,6 @@ for VAR in `env`; do
 done
 
 socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
-
-mkdir -p /var/run/xvfb/
-cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
 
 /usr/sbin/xvfb-run \
     --auto-servernum -f \
