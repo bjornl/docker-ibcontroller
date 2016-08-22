@@ -23,15 +23,12 @@ done
 
 socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
 
+mkdir -p /var/run/xvfb/
+cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
+
 /usr/sbin/xvfb-run \
-    --auto-servernum \
-    -f \
-    /var/run/xvfb/ \
-    java \
-    -cp \
-    /usr/share/java/ib-tws/*:/usr/share/java/ibcontroller/* \
-    -Dsun.java2d.noddraw=true \
-    -Dswing.boldMetal=false \
-    -Dsun.locale.formatasdefault=true -Xmx512M \
-    ibcontroller.IBGatewayController \
-    $conf;
+    --auto-servernum -f \
+    /var/run/xvfb/conf \
+    java -cp /usr/share/java/ib-tws/*:/usr/share/java/ibcontroller/ibcontroller.jar -Xmx512M \
+    ibcontroller.IBGatewayController $conf;
+
