@@ -3,7 +3,7 @@
 conf=/etc/ibcontroller/conf.ini
 
 # Force those values
-export IB_ForceTwsApiPort=4003
+export IB_ForceTwsApiPort=4001
 export IB_IbBindAddress=127.0.0.1
 export IB_IbDir=/var/run/ibcontroller/tws/conf
 export IB_TradingMode=paper
@@ -21,7 +21,7 @@ for VAR in `env`; do
     fi
 done
 
-socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
+socat TCP-LISTEN:4001,fork TCP:127.0.0.1:4001&
 
 mkdir -p /var/run/xvfb/
 cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
