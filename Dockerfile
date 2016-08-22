@@ -19,6 +19,7 @@ RUN aur-install.sh ib-controller --skipchecksums
 
 COPY start.sh /start.sh
 RUN chmod a+x /start.sh
+RUN cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
 
 EXPOSE 4003
 

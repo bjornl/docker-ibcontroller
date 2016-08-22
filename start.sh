@@ -3,7 +3,6 @@
 conf=/etc/ibcontroller/conf.ini
 
 mkdir -p /var/run/xvfb/
-cp /etc/ibcontroller/edemo.ini /etc/ibcontroller/conf.ini
 
 # Force those values
 export IB_ForceTwsApiPort=4001
@@ -25,9 +24,7 @@ done
 
 socat TCP-LISTEN:4003,fork TCP:127.0.0.1:4001&
 
-/usr/sbin/xvfb-run \
-    --auto-servernum -f \
-    /var/run/xvfb/conf \
-    java -cp /usr/share/java/ib-tws/*:/usr/share/java/ibcontroller/ibcontroller.jar -Xmx512M \
+/usr/sbin/xvfb-run --auto-servernum -f /var/run/xvfb/conf \
+    java -cp /usr/share/java/ib-tws/*:/usr/share/java/ibcontroller/* -Xmx512M \
     ibcontroller.IBGatewayController $conf;
 
